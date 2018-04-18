@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\begin{document}
+\parindent=0pt
+\title{Problem Set E}
+\author{Smit Rao (1004324135)\thanks{smit.rao@mail.utoronto.ca} 
+\and Zainab Dar (TUT104)}
+\maketitle
+\textbf{3.7.6}\\\\
+a) 
+$R = (\forall x \in \mathbb{R})(\exists y \in \mathbb{R})(x+y<1).\quad S = (\exists y \in \mathbb{R})(\forall x \in \mathbb{R})(x+y<1).$\\\\
+b) 
+$\neg R = (\exists x \in \mathbb{R})(\forall y \in \mathbb{R})(x+y \geq 1).\quad \neg S = (\forall y \in \mathbb{R})(\exists x \in \mathbb{R})(x+y \geq 1).$\\\\
+c) The statement $R$ is true because for any $x \in \mathbb{R}$, we can fix some $y \in \mathbb{R} : y = -x$ to satisfy $R$. 
+The statement $S$ is false because if $y \in \mathbb{R}$ is fixed, it is possible to find $x \in \mathbb{R} : x = |y| + 2$.\\\\
+\textbf{3.7.8}\\\\
+b)
+Truth table for $P \Rightarrow (P \Rightarrow Q)$:\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$P$ & $Q$ & $P \Rightarrow Q$ & $P \Rightarrow (P \Rightarrow Q)$\\
+\hline
+T & T & T & T\\
+T & F & F & F\\
+F & T & T & T\\
+F & F & T & T\\
+\hline
+\end{tabular}
+\end{center}
+\newpage
+d)
+Truth table for $(P \Rightarrow Q) \Rightarrow (P \land Q)$:\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+$P$ & $Q$ & $P \Rightarrow Q$ & $P \land Q$ & $(P \Rightarrow Q) \Rightarrow (P \land Q)$\\
+\hline
+T & T & T & T & T\\
+T & F & F & F & T\\
+F & T & T & F & F\\
+F & F & T & F & F\\
+\hline
+\end{tabular}
+\end{center}
+
+f)
+Truth table for $[P \lor (\neg Q)] \Rightarrow [Q \land (\neg P)]$:\\
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+$P$ & $Q$ & $\neg P$ & $\neg Q$ & $P \lor (\neg Q)$ & $Q \land (\neg P)$ & $[P \lor (\neg Q)] \Rightarrow [Q \land (\neg P)]$\\
+\hline
+T & T & F & F & T & F & F\\
+T & F & F & T & T & F & F\\
+F & T & T & F & F & T & T\\
+F & F & T & T & T & F & F\\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{3.7.10}\\\\
+a)
+If $P \lor (Q \Rightarrow (\neg R))$ is \emph{false}, then $P$ must be false since if it was true, the ``or" part of the given statement would evaluate the entire statement to true. 
+Similarly, the statement $Q \Rightarrow (\neg R)$ must also be false by the same logic. Since this is also confirmed to be false, we can deduce that $Q$ and $R$ are both true, because
+the negation of any implication in the form $A \Rightarrow B$ is $A \land \neg B$; if we substitute $A = Q, B = \neg R$, we see that $A \land \neg B$ is in fact $Q \land R$, meaning 
+that both Q and R are true. Therefore, P is false while Q and R are true.\\\\
+b)
+We are given that $[(P \land Q \lor R] \Rightarrow (R \lor S)$ is \emph{false}. This means its negation is true: $[(P \land Q \lor R] \land (\neg R \land \neg S)$. 
+From this point we clearly see that to prevent contradiction, $R$ and $S$ are false; meaning that $P \land Q$ must be true, making both $P$ and $Q$ true.\\\\
+\textbf{3.7.22}\\\\
+a)
+The negation of $\alpha = (\exists M \in \mathbb{Z})(\forall x \in \mathbb{R})(x^2 \leq M)$ is $\beta = (\forall M \in \mathbb{Z})(\exists x \in \mathbb{R})(x^2 > M)$. 
+The given statement, $\alpha$, is false because for any fixed integer, it is always possible to pick $x = |M| + 100$ in order to demonstrate a contradiction.\\\\
+b)
+The negation of $\alpha = (\exists y \in \mathbb{R})(\forall x \in \mathbb{R})(|x-y|=|x|-|y|)$ is $\beta = (\forall y \in \mathbb{R})(\exists x \in \mathbb{R})(|x-y| \neq |x|-|y|)$. 
+The given statement, $\alpha$, is true since $y = 0$ satisfies $\alpha$.\\\\
+c)
+Statement $\alpha = (\forall x \in \mathbb{R})[(x-6)^2 = 4 \implies x = 8]$, \quad $\neg \alpha = (\exists x \in \mathbb{R})[(x-6)^2 = 4 \land x \neq 8]$. 
+The statement $\alpha$ is false, since its hypothesis implies that $x = 8$, which does not include the alternate solution $x = 4$. 
+Since one solution for the given equation in $\alpha$'s hypothesis is not included, this statement ($\alpha$)  must evaluate to false.\\\\
+d)
+Statement $\xi = (\forall x, y \in \mathbb{R})(x^2-y^2 = 9 \implies |x| \geq 3)$, \quad $\neg \xi = (\exists x, y \in \mathbb{R})(x^2 - y^2 = 9 \land |x| < 3)$. 
+The statement $\xi$ is true since the term $y^2$ is always non-negative, and so we have $x^2-y^2 \leq x^2$. Since this means that $x^2$ must also then satisfy $x^2 \geq 9 = x^2 - y^2$, this is the case when $|x| \geq 3$ as suggested.\\\\
+e)
+Statement $\upsilon = (\forall x \in \mathbb{R})[(x-1)(x-3)=3 \implies x-1=3 \lor x-3=3]$, \quad $\neg \upsilon = (\exists x \in \mathbb{R})[(x-1)(x-3)=3 \land x-1 \neq 3 \land x-3 \neq 3]$. 
+Statement $\upsilon$ is false since $x=0$ can be offered as a counterexample.\\\\
+\textbf{3.7.24}\\\\
+a)
+\\\\
+b)
+The statement $P$ is telling us that for any two consecutive integers, their product is \emph{at least} zero. 
+To determine whether this statement is correct, let us consider the following possible cases: 
+$$\textnormal{Case 1: } x=0 \lor x-1=0 \implies x(x-1) = 0$$
+$$\textnormal{Case 2: } x \neq 0 \land x-1 \neq 0 \implies (x > 0 \land x-1 > 0) \lor (x < 0 \land x-1 < 0)$$\\
+Notice that in either of the above cases, $x(x-1) \geq 0$. Therefore, $P$ is true.\\\\
+
+
+
+
+
+
+\end{document}
+

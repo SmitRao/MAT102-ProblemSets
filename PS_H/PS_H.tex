@@ -1,0 +1,115 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\title{Problem Set H}
+\author{Smit Rao (1004324135) \and Zainab Dar (TUT104)}
+\begin{document}
+\maketitle
+\parindent=0pt
+\textbf{4.6.6}\\\\
+Claim: $\forall n \in \mathbb{N}, \quad 5|4^{2n}-1$\\\\
+Our proof is by induction:\\\\
+\emph{Base Case:}
+$$n=1 \iff \frac{4^{2(1)}-1}{5} \in \mathbb{Z} \iff \frac{15}{5} \in \mathbb{Z} \iff 3 \in \mathbb{Z}$$
+In order to proceed, let us establish our induction hypothesis:
+$$\mathcal{IH} = (\exists k \in \mathbb{N})(5|4^{2k}-1)$$
+We want to show $5|4^{2(k+1)}-1$.
+\begin{align}
+\mathcal{IH} &\implies 5|4^2 \cdot (4^{2k}-1)\\
+&\implies 5|4^{2k+2}-16\\
+&\implies 5|4^{2(k+1)}-1+15\\
+&\implies 5|4^{2(k+1)}-1
+\end{align}
+Hence by induction, $\forall n \in \mathbb{N}, \quad 5|4^{2n}-1$ as required.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{4.6.22}\\\\
+A given sequence $(a_n)$ is defined by the following rules. 
+$$a_1 = 6, \quad a_2 = 8, \quad (\forall n > 2)(a_n = 4 \cdot a_{n-1} - 4 \cdot a_{n-2})$$
+We claim $( \forall n \in \mathbb{N})[a_n = (4-n) \cdot 2^n]$. Our proof is by strong induction:\\\\
+\emph{Base Cases:}
+$$\boxed{n=1 \implies a_1 = 6 = (4-(1)) \cdot 2^{(1)} \iff 6 = 6}$$
+$$\boxed{n=2 \implies a_2 = 8 = (4-(2)) \cdot 2^{(2)} \iff 8 = 8}$$
+$$\boxed{n=3 \implies a_3 = 4 \cdot a_{(3)-1}-4 \cdot a_{(3)-2} = (4-(3)) \cdot 2^{(3)} \iff 8=8}$$
+\quad\\
+Our $\mathcal{IH}$ assumes that our claim is true for all naturals up to some $k \in \mathbb{N}$ so that $n = (1) \cdots (k) \implies (a_1 = (4-(1)) \cdot 2^{(1)}) \cdots (a_k = (4-(k)) \cdot 2^{k})$. We would like to show:
+$$a_{k+1} = (4-(k+1)) \cdot 2^{k+1}$$
+Based on the given formula:
+\begin{align*}
+a_{k+1} &= 4 \cdot a_k - 4 \cdot a_{k-1}\\
+\langle \mathcal{IH} \rangle \quad\Rightarrow\quad\quad\quad &= 4((4-k) \cdot 2^k)-4((4-(k-1)) \cdot 2^{k-1})\\
+&= 4 \cdot 2^k \left(4-k-\frac{3}{2}+\frac{k}{2} \right)\\
+&= 2^2 \cdot 2^k \cdot 2^{-1}(5-k)\\
+&= 2^{k+1} \cdot (4-1-k)\\
+&= (4-(k+1)) \cdot 2^{k+1}
+\end{align*}
+By strong induction, $( \forall n \in \mathbb{N})[a_n = (4-n) \cdot 2^n]$ as required.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{4.6.23}\\\\
+We claim $(\forall n \in \mathbb{N})(1 \leq a_n \leq 2)$ for a given a sequence $(a_n)$ defined as:
+$$a_1=a_2=1, \quad (\forall n \geq 3)\left(a_n=\frac{1}{2}\left(a_{n-1}+\frac{2}{a_{n-2}}\right)\right)$$
+Our proof is by strong induction.\\\\
+\emph{Base Cases:}
+$$\boxed{n=(1 \lor 2) \implies (a_1=a_2=1) \land (1 \leq a_1 \leq 2) \land (1 \leq a_2 \leq 2)}$$
+$$\boxed{n=3 \implies a_3 = \frac{1}{2} \left(a_{(3)-1}+\frac{2}{a_{(3)-2}} \right) = \frac{3}{2} \implies 1 \leq a_3 \leq 2}$$
+\quad\\
+Let us establish our $\mathcal{IH}$:
+$$(\exists k \in \mathbb{N})\Big[\forall \phi \in (a_k)\Big](1 \leq \phi \leq 2)$$
+We want to show $1 \leq a_{k+1} \leq 2$. We are given a formula:
+$$(\forall k \geq 3)\left(a_{k+1}=\frac{1}{2}\left(a_k+\frac{2}{a_{k-1}}\right)\right)\implies a_{k+1} = \frac{a_k}{2}+\frac{1}{a_{k-1}}$$
+\begin{align*}
+\langle \mathcal{IH} \rangle &\implies (1 \leq a_k \leq 2) \land (1 \leq a_{k-1} \leq 2)\\
+&\implies \left(\frac{1}{2}\leq \frac{a_k}{2}\leq 1\right)\land \left(\frac{1}{2}\leq \frac{1}{a_{k-1}}\leq 1\right)\\
+&\implies 1 \leq \frac{a_k}{2}+\frac{1}{a_{k-1}} \leq 2\\
+&\implies 1 \leq a_{k+1} \leq 2
+\end{align*}
+As required, we show by strong induction $(\forall n \in \mathbb{N})(1 \leq a_n \leq 2)$ for a given a sequence $(a_n)$ as defined in the above claim.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{4.6.28}\\\\
+Claim:
+$$(\forall n \in \mathbb{N})\Big(\exists p \in \mathbb{N}\cup \{0\}\Big)(\exists r \in \mathbb{Z})(r \mod 2 = 1)\Big(n=2^p \cdot r \Big)$$
+We can prove this for all odd values of $n$ by fixing $p=0$ and choosing $r=n$. In order to prove this for even values of $n$, we consider the following fact.\\\\
+\underline{\texttt{Lemma}}:\\\\
+Repeatedly multiplying an \textit{even natural number} by $2^{-1}$ eventually yields an odd number (the minimum of which is $1$).\\\\ 
+Using the above \texttt{lemma}, we prove the given claim by strong induction. Notice that our base case is an odd natural number (for which we have already proved our claim holds true). We now establish our $\mathcal{IH}$:
+$$(\exists k \in \mathbb{N})(k \mod 2 = 0)\Big[\forall \phi \in (a_k)\Big]$$
+$$\Big(\exists p \in \mathbb{N}\cup \{0\}\Big)(\exists r \in \mathbb{Z})(r \mod 2 = 1)(\phi = 2^p \cdot r)$$
+In order to prove our claim, it suffices to show that an even $k$ can be multiplied by $2^{-1}$ repeatedly until the exponent $p$ on the power $2^p$ eventually reaches 0, indicating $\phi$ has reached an odd natural number as required.
+\begin{align}
+&\quad (k+2) = 2^p \cdot r\\
+&\implies 2^{-1}(k+2)=2^{p-1} \cdot r\\
+&\implies \phi = \frac{k}{2}+1 = 2^{p-1} \cdot r\\
+[\textnormal{Case 1: Odd}\ \phi] \quad\quad &\implies \textbf{quod erat demonstrandum}\\
+[\textnormal{Case 2: Even}\ \phi] \quad\quad &\implies \textbf{repeat line (7) with k =}\ \phi_2
+\end{align}
+Repeating line (7) sufficiently, we eventually end up with a power $2^0$ on the right side, where $p_{\phi} = 0$. Hence, we reach an odd value of $\phi$ as required.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{5.6.2}\\\\
+a) The function $p$ is a surjection since fixing $b=1$ yields $p(a,b)=a$ which hits all $y \in \mathbb{N}$. It cannot be an injection since its inverse is not a valid function; hence it is also not a bijection.\\\\
+b) The function $f$ is an injection since $(\forall x \in [0, \infty))(\exists ! \sqrt{x})$. Notice that $f$ is non-negative and hence does not hit all $y \in \mathbb{R}$, hence it cannot be surjective or bijective.\\\\
+c) The function $g$ is neither surjective nor injective. The function $g^{-1}$ is invalid; therefore $g$ is not an injection or bijection. Notice that there are no negative values in the codomain of $g$, meaning it cannot hit all $\mathbb{R}$. Therefore this is not surjective either.\\\\
+d) Since $(\forall x \in \mathbb{R})(\exists ! x^3)$, the function $h$ is injective. Notice that $(\exists x^3)(\forall x \in \mathbb{R}) \implies h$ is surjective. Since it is both injective and surjective, it is classified as a bijection.\\\\
+\textbf{5.6.4}\\\\
+$f:\mathbb{R}\to\mathbb{R}$ is negative and monotone on one interval, positive and monotone on the other. It is strictly increasing and decreasing respectively on its two intervals and maps a unique $x \in \mathbb{R}$ to a unique $y \in \mathbb{R}$. Its range is $\mathbb{R}$, which is identical to its codomain. Hence, this fuction is an injection as well as a surjection; in other words, it is a bijection.\\\\
+\textbf{5.6.8}\\\\
+a) Surjectivity\\
+b) Boundedness\\
+c) Injectivity\\\\
+\textbf{5.6.10}\\\\
+a) $f(1)=2 \land f(2)=1 \land f(3)=4 \land f(4)=3$\\
+b) $f$ is an injection.\\
+c) $f$ is a surjection.
+\end{document}

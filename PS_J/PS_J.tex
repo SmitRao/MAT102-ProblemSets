@@ -1,0 +1,143 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\title{Problem Set J}
+\author{Smit Rao (1004324135) \and Zainab Dar (TUT104)}
+\begin{document}
+\maketitle
+\parindent=0pt
+\textbf{5.6.20}
+$$f:A \to \mathbb{R}, \quad g:A \to \mathbb{R}. \quad g(x) = 3\cdot [f(x)]^2+1$$
+\emph{Claim}: 
+$$(\forall a,\ b,\ p,\ q \in \mathbb{R})\big[(g(a)=g(b) \implies a=b) \implies (f(p)=f(q) \implies p=q)\big]$$
+\emph{Proof}:
+\begin{align*}
+&(g(a)=g(b) \implies a=b)\\
+\Rightarrow \quad& (g(p)=g(q) \implies p=q)\\
+\Rightarrow \quad& (3\cdot [f(p)]^2+1=3\cdot [f(q)]^2+1 \implies p=q)\\
+\Rightarrow \quad& (f(p)=f(q) \implies p=q)
+\end{align*}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{5.6.26}\\\\
+\emph{Claim}:
+\begin{center}
+\boxed{\textnormal{The composition of two injections is an injection.}}
+\end{center}
+\emph{Proof}:\\\\
+We want to show:
+$$(\forall f,\ g)(f\ \textnormal{injective},\ g\ \textnormal{injective})(f(g(a))=f(g(b))\implies a=b)$$
+\begin{align*}
+f(g(a)) &=f(g(b))\\
+\implies g(a) &=g(b)\\
+\implies a &=b
+\end{align*}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{5.6.38}\\\\
+We know that $\mathbb{Z}$ is \emph{countable}, and its power set $P(\mathbb{Z})$ has a strictly greater cardinality than $|\mathbb{Z}|$, hence $P(\mathbb{Z})$ is \underline{uncountable}. If it was countable, this would mean it has the same cardinality as $|\mathbb{N}|=|\mathbb{Z}|$, a contradiction of the theorem $(\forall\ \textnormal{Set}\ X)(|P(X)|>|X|)$. $P(\mathbb{Z})$ is trivially not finite since its cardinality is infinite $\because$ it is lower-bounded by $|\mathbb{Z}|$.\\
+
+We know that $\mathbb{R}$ is uncountable. We also know that $|\mathbb{R}|=|(0, 1)|$ from lectures. We can now form a bijection $f:(0, 1) \to (2,3) \quad, \quad f(x)=x+2$ hence showing $|(2, 3)|=|(0, 1)|=|\mathbb{R}|,\ \therefore (2, 3)$ must be \underline{uncountable}.\\
+
+By the Prime Number Theorem, there are infinitely many prime numbers $\therefore$ they are not finite. In addition, $\lim_{x\to \infty} \pi(x)$, representing the number of positive primes is upper-bounded by $|\mathbb{N}|$. We can list the negatives of all such primes $p$ simply as $-p$, hence it maintains its cardinality. $\therefore$ the number of prime numbers is \underline{countable} ($\because$ it does not exceed the cardinality of naturals, it can't be uncountable).\\
+
+Lemmas:\\ 
+(1) There are infinitely many rationals in $[0,1]$.\\ 
+(2) $(\forall\ \textnormal{Sets}\ A, B)\big(|A \cap B| \leq \min(|A|, |B|)\big)$\\
+Notice that (1)$\implies \left(\mathbb{Q} \cap [0,1]\ \textnormal{is not finite}\right)$. It cannot be uncountable since it is upperbounded by $|\mathbb{Q}| \therefore$ it must be \underline{countable}.\\
+
+Trivially, $\mathbb{N} \cap (-\infty, 1000) = \{1, 2, 3 \cdots 997, 998, 999\}$. This is obviously \underline{finite} since we can assign a \emph{finite} value to $|\mathbb{N} \cap (-\infty, 1000)|$. Id est we can start counting the elements of the given set and finish counting at some point in time precisely due to its finite cardinality.\\\\
+\textbf{5.6.40}
+$$|A|\not= |B|$$
+In the context of MAT102, we say a set is ``countable" iff it has the \emph{same cardinality} as $\mathbb{N}$. We observe there are $3$ cases for cardinality:\\\\
+a) If $A$ is countable, it is possible that $|B|$ is finite. Exempli gratia: $B = \{1\}$.\\
+b) If $A$ is uncountable, $|B|$ be may still be finite. Exempli gratia: $B = \{2\}$.\\
+\textbf{5.6.48}\\\\
+$B=\{f:X\to \{0,1\}\}$. We are producing a bijection $\quad h: P(X) \to B$. In order to do this, we produce an injection $h$ followed by a surjection $h$.\\
+
+For injectivity, we want $\left(\forall X_1,\ X_2 \in P(X)\right)[(f_1:X_1 \to \{0,1\} = f_2:X_2 \to \{0,1\}) \implies X_1=X_2]$.
+\begin{align*}
+&f_1=f_2\\
+\implies&(\forall x_1 \in X_1)(x_1 \in X_2) \land (\forall x_2 \in X_2)(x_2 \in X_1)\\
+\implies& X_1 = X_2
+\end{align*}
+For surjectivity, we want $h(P(X))=B$. Due to injectivity, it suffices to show $|P(X)| = |B|$. Alternately we can also show $\forall f \in B, \quad \exists X \in P(X), \quad h(X)=f$.\\
+
+Let $f \in B$ be given. Since $X$ is nonempty, we know $P(X)$ always has at least two elements; which are in particular, $\phi \land X$. Since $h$ is one-to-one, it maps its elements to at least two distinct functions, each of which map X to $f$'s entire codomain consisting of $0 \land 1$.\\\\
+Another way of thinking about this is: $$|P(X)|=2^{|X|}=|B|\ (\because\ f\ \textnormal{maps to two outputs, yielding cardinality}\ 2^{|X|})$$...as required for bijection.
+\pagebreak
+
+\textbf{6.4.2}
+\begin{center}
+\begin{tabular}{ l c r }
+a) True & c) True & e) False\\
+b) False & d) True & f) True
+\end{tabular}
+\end{center}
+\textbf{6.4.4}\\\\
+a) \emph{True Claim}: $d|a \land d|b \implies d|(a+b)$.\\
+
+\emph{Proof}:
+\begin{align*}
+&\frac{a}{d} \in \mathbb{Z} \land \frac{b}{d} \in \mathbb{Z}\\
+\implies& \frac{a}{d} + \frac{b}{d} \in \mathbb{Z}\\
+\implies& \frac{a+b}{d} \in \mathbb{Z}\\
+\implies& d|(a+b)
+\end{align*}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+b) \emph{False Claim}: $d|(a+b) \implies d|a \land d|b$\\
+
+\emph{Counterexample}: $d=3, \quad a=2, \quad b=1$.\\
+
+c) \emph{False Claim}: $d|(a+b) \implies d|a \lor d|b$\\
+
+\emph{Counterexample}: $d=3, \quad a=2, \quad b=1$.\\
+
+d) \emph{True Claim}: $d|(a+b) \implies (d|a \land d|b) \lor (d\not|\ a \land d\not|\ b)$\\
+
+\emph{Proof}:\\
+
+For the sake of contradiction: 
+\begin{align*}
+&\neg \textnormal{Claim} = \underline{d|(a+b) \land (d|a \lor d|b)} \land (d \not|\ a \lor d \not|\ b)\\
+\textnormal{Part (c)}\ \implies& \underline{d|(a+b)\land \neg(d|a \lor d|b)} \textnormal{ is True}\\
+\implies& \neg \textnormal{Claim is False}\\
+\implies& \textnormal{Claim is True}
+\end{align*}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\pagebreak
+\textbf{6.4.8}
+$$\exists a, b, c \in \mathbb{Z}, \quad a^2+b^2=c^2$$
+\emph{Claim}: $2|c \implies 2|a \land 2|b$\\
+
+\emph{Proof}:\\
+
+Lemma: The product of evens is even, the product of odds is odd.
+\begin{align*}
+&a^2+b^2=c^2-b^2\\ 
+\implies& a^2=(c+b)(c-b)\\
+\because\ (c\ even), (Lemma)\ \quad\implies& (\textnormal{a even} \land \textnormal{b even}) \lor (\textnormal{a odd} \land \textnormal{b odd})
+\end{align*}
+For the sake of contradiction, assume a, b are odd. Then, $(\exists p, q, r \in \mathbb{Z})(2p+1=a)(2q+1=b)(2r=c)$
+\begin{align*}
+&a^2+b^2=c^2\\
+\implies& (2p+1)^2+(2q+1)^2=4r^2\\
+\implies& 4p^2+4p+4q^2+4q+2=4r^2\\
+\implies& 4p^2+4p+4q^2+4q-4r^2=2\\
+\textnormal{Notice}\ \quad\quad& 4|(4p^2+4p+4q^2+4q-4r^2)\\
+\textnormal{But}\ \because\quad\quad& 4 \not |\ 2\quad\textnormal{...a contradiction}
+\end{align*}
+By our lemma, we know that both a, b must be both even or both odd. Since we contradicted the case where a, b are odd, we conclude they must both be even.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\end{document}

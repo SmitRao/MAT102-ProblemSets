@@ -1,0 +1,239 @@
+\documentclass[12pt]{article}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\title{Problem Set F: Induction}
+\author{Smit Rao (1004324135) 
+\and Zainab Dar (TUT104)}
+\begin{document}
+\maketitle
+\parindent=0pt
+\textbf{4.6.1}\\\\
+(b)\\\\
+Claim:
+$$\forall n \in \mathbb{N}, \quad 1^2+2^2+ \cdots +n^2 = \frac{1}{6} n(1+n)(1+2n)$$
+\emph{Proof}:\\\\
+Confirm base case: 
+$$n=1 \iff (1)^2 = \frac{1}{6} (1) (1+(1))(1+2(1)) \iff 1 = 1$$
+Now that we have confirmed our base case when $n=1$, it suffices to show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$ to prove the given claim by induction. Let us establish our induction hypothesis: $1^2+2^2+ \cdots +k^2 = \frac{1}{6} k(1+k)(1+2k)$ for some $k \in \mathbb{N}$.\\\\
+We want to show: $$\boxed{1^2+2^2+\cdots+k^2+(k+1)^2=\frac{1}{6}(k+1)(1+(k+1))(1+2(k+1))}$$
+$$\vdots$$
+\begin{align}
+\mathtt{LHS} &= 1^2+2^2+\cdots+k^2+(k+1)^2\\
+&= \frac{1}{6} k(1+k)(1+2k) + (k+1)^2\\
+&= \frac{1}{6} k(1+k)(1+2k) + k^2 + 2k + 1\\
+&= \frac{1}{6} (k+k^2+2k^2+2k^3)+k^2+2k+1\\
+&= \frac{1}{6} (k+k^2+2k^2+2k^3+6k^2+12k+6)\\
+&= \frac{1}{6} (2k^3+4k^2+2k^2+4k+3k^2+6k+3k+6)\\
+&= \frac{1}{6} ((k^2+2k+k+2)(2k+3))\\
+&= \frac{1}{6} ((k+1)(k+2)(2k+3))\\
+&= \frac{1}{6} (k+1)(1+(k+1))(1+2(k+1))\\
+&= \mathtt{RHS}
+\end{align}
+Notice that line (2) required that we use our induction hypothesis; something we must take for granted in order to proceed with the proof as needed. Hence, by induction, we have $(\forall n \in \mathbb{N})[1^2+2^2+ \cdots +n^2 = \frac{1}{6} n(1+n)(1+2n)]$. 
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.2}\\\\
+(a)\\\\
+Claim:
+$$\forall n \in \mathbb{N}, \quad 5^n+5 < 5^{n+1}$$
+\emph{Proof}:\\\\
+Confirm base case:
+$$n=1 \iff 5^{(1)}+5<5^{(1)+1} \iff 10 < 25$$
+Now that we have confirmed our base case when $n=1$, it suffices to show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$ to prove the given claim by induction. Let us establish our induction hypothesis: $5^k+5<5^{k+1}$ for some $k \in \mathbb{N}$.\\\\
+We want to show: $$\boxed{5^{(k+1)}+5<5^{(k+1)+1}}$$
+\begin{align}
+5^k+5<5^{k+1} &\implies 5(5^k+5)<5(5^{k+1})\\
+&\implies 5^{k+1}+25<5^{(k+1)+1}\\
+&\implies 5^{(k+1)}+5<5^{(k+1)+1}
+\end{align}
+Notice that line (11) started by assuming the induction hypothesis. Going forward by multiplying either side of the inequality by $5$, we can further \emph{reduce the lower end} of the inequality on line (12). Subtracting $20$ from the lower end yields the inequality we need to show as required by induction.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+(d)\\\\
+Claim:
+$$\forall n \in \mathbb{N}, \quad \frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{n}} \leq 2 \sqrt{n}$$
+\emph{Proof}:\\\\
+Confirm base case:
+$$n=1 \iff \frac{1}{\sqrt{(1)}} \leq 2 \sqrt{(1)} \iff 1 \leq 2$$
+Our claim holds for the base case. In order to prove the claim, we must now show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$. Let us establish our induction hypothesis: $\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{k}} \leq 2 \sqrt{k}$ for some $k \in \mathbb{N}$.\\\\
+We want to show: $$\boxed{\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{k}}+\frac{1}{\sqrt{(k+1)}} \leq 2 \sqrt{(k+1)}}$$
+\begin{align}
+&\quad \sqrt{(k)(k+1)} \leq \frac{(k)+(k+1)}{2}\\ 
+&\implies \sqrt{k}\sqrt{k+1} \leq \frac{2k+2}{2}\\
+&\implies \sqrt{k}\sqrt{k+1} \leq k+\frac{1}{2}\\
+&\implies 2\sqrt{k}\sqrt{k+1} \leq 2k + 1\\
+&\implies 2\sqrt{k}\sqrt{k+1} + 1 \leq 2k + 2\\
+&\implies 2\sqrt{k}\sqrt{k+1} + 1 \leq 2(k+1)\\
+&\implies \frac{1}{\sqrt{k+1}}\cdot(2\sqrt{k}\sqrt{k+1} + 1) \leq \frac{1}{\sqrt{k+1}}\cdot(2(k+1))\\
+&\implies (2\sqrt{k})+\frac{1}{\sqrt{k+1}} \leq 2\sqrt{k+1}\\
+&\implies \left(\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{k}}\right)+\frac{1}{\sqrt{k+1}} \leq 2\sqrt{k+1}\\
+&\implies \frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{k}}+\frac{1}{\sqrt{(k+1)}} \leq 2 \sqrt{(k+1)}
+\end{align}
+This proof relies on our previously-established understanding of the AGM Inequality, which is evident from line (14). We use our induction hypothesis in our proof during the transition from line (21) to line (22). Here, we are \emph{reducing} the \emph{lower end} of our inequality. Note that this maintains the inequality as the its lower end may be reduced as needed. Therefore, by induction, $(\forall n \in \mathbb{N})(\frac{1}{\sqrt{1}}+\frac{1}{\sqrt{2}}+\cdots+\frac{1}{\sqrt{n}} \leq 2 \sqrt{n})$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.3}\\\\
+We are given $0<a<1$. We claim the following. $$(\forall n \in \mathbb{N})\left[(1-a)^{n}<\frac{1}{1+n \cdot a}\right]$$
+\emph{Proof}:\\\\
+Base case:
+$$n=1 \iff (1-a)^{(1)}<\frac{1}{1+(1)\cdot a} \iff 1-a^2<1$$
+Notice $a>0 \Rightarrow 1-a^2 < 1$, as needed to satisfy our base case. In order to prove the claim, we must now show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$. Let us establish our induction hypothesis: $$(\exists k \in \mathbb{N})\left[(1-a)^{k}<\frac{1}{1+k \cdot a}\right]$$
+We must show the following: $$\boxed{(1-a)^{(k+1)}<\frac{1}{1+(k+1) \cdot a}}$$
+\begin{align}
+&\quad (a>0) \land (k>0)\\
+&\implies a^2(k+1)>0\\
+&\implies 0>-a^2(k+1)\\
+&\implies (1+k \cdot a)>(1+k \cdot a) -a^2(k+1)\\
+&\implies \left[\frac{1}{\frac{1}{1+k \cdot a}}\right]>1+k \cdot a - ka^2-a^2\\
+&\implies \left[\frac{1}{\frac{1}{1+k \cdot a}}\right]>1+k \cdot a+a-(a + ka^2 + a^2)\\
+&\implies \frac{1}{(1-a)^k}>(1-a)\cdot(1 + ka + a)\\
+&\implies \frac{1}{(1-a)^k}\cdot \frac{1}{(1-a)}>(1 + ka + a)\\
+&\implies \frac{1}{(1-a)^{k+1}}>1 + (k+1)\cdot a\\
+&\implies (1-a)^{(k+1)}<\frac{1}{1+(k+1) \cdot a}
+\end{align}
+Notice we use our induction hypothesis on line (30) to reduce the denominator to the left of our inequality. Additionally, both sides of the inequality are positive on line (32), so we invert the inequality and take reciprocals of each side on line (33). This yields the inequality we were originally showing. By induction, $((1-a)^{n}<\frac{1}{1+n \cdot a})(\forall n \in \mathbb{N})$, given $0<a<1$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.4}\\\\
+Claim: $$\forall n \in \mathbb{N}, \quad 10 \mid 3^{4n+2}+1$$
+\emph{Proof}:\\\\
+Base case: $$n=1 \iff \frac{3^{4n+2}+1}{10} \in \mathbb{Z} \iff \frac{730}{10} \in \mathbb{Z} \iff 73 \in \mathbb{Z}$$
+Having confirmed our base case, we must perform the inductive step. We must show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$. Let us establish our induction hypothesis: $$(\exists k \in \mathbb{N})\left[\frac{1}{10}\cdot (3^{4k+2}+1) \in \mathbb{Z}\right]$$
+To show: $$\boxed{\frac{1}{10}\cdot (3^{4(k+1)+2}+1) \in \mathbb{Z}}$$
+\begin{align}
+& \frac{3^{4k+2}+1}{10} \in \mathbb{Z}\\
+&\implies 3^4 \cdot \frac{3^{4k+2}+1}{10} \in \mathbb{Z}\\
+&\implies \frac{3^{4k+4+2}+3^4}{10} \in \mathbb{Z}\\
+&\implies \frac{3^{4(k+1)+2}+1+80}{10} \in \mathbb{Z}\\
+&\implies \frac{3^{4(k+1)+2}+1}{10}+8 \in \mathbb{Z}\\
+&\implies \frac{1}{10}\cdot (3^{4(k+1)+2}+1) \in \mathbb{Z}
+\end{align}
+Using our induction hypothesis on line (34), we show by induction that $(\forall n \in \mathbb{N})\left[\frac{1}{10}\cdot (3^{4n+2}+1) \in \mathbb{Z}\right]$ as required.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.8}\\\\
+Let us prove that $(\forall n \in \mathbb{N})\left(\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n \in \mathbb{Z}\right)$. 
+In order to prove this claim by induction, we must first consider our base case: $$n=1 \iff \frac{1}{3}(1)^3+\frac{1}{2}(1)^2+\frac{1}{6}(1) \in \mathbb{Z} \iff 1 \in \mathbb{Z}$$
+The inductive step follows: $n=k \implies n=(k+1)$ for some $k \in \mathbb{N}$. Establishing our induction hypothesis, $P_k = \frac{1}{3}k^3+\frac{1}{2}k^2+\frac{1}{6}k \in \mathbb{Z}$, we show:
+$$\boxed{P_{k+1} = \frac{1}{3}(k+1)^3+\frac{1}{2}(k+1)^2+\frac{1}{6}(k+1) \in \mathbb{Z}}$$
+\begin{align}
+&\alpha = \frac{1}{3}k^3+\frac{1}{2}k^2+\frac{1}{6}k\\
+&\beta = \frac{1}{3}(1)^3+\frac{1}{2}(1)^2+\frac{1}{6}(1)\\
+&\gamma = \frac{1}{3}(3k^2)+\frac{1}{3}(3k)+\frac{1}{2}(2k) 
+\end{align}
+\begin{align}
+& (P_k \Rightarrow \alpha \in \mathbb{Z}) \land (\textnormal{Base Case} \Rightarrow \beta \in \mathbb{Z}) \land (k \in \mathbb{N} \Rightarrow \gamma \in \mathbb{Z})\\
+&\implies \alpha+\beta+\gamma \in \mathbb{Z}\\
+&\implies \frac{1}{3}(k^3)+\frac{1}{3}(3k^2)+\frac{1}{3}(3k)+\frac{1}{3}(1)\\
+&\quad\quad+ \frac{1}{2}(k^2)+\frac{1}{2}(2k)+\frac{1}{2}(1)\\
+&\quad\quad+ \frac{1}{6}(k)+\frac{1}{6}(1) \in \mathbb{Z}\\
+&\implies \frac{1}{3}(k+1)^3+\frac{1}{2}(k+1)^2+\frac{1}{6}(k+1) \in \mathbb{Z} \quad\quad [= P_{k+1}]
+\end{align}
+The induction hypothesis establishes $\alpha \in \mathbb{Z}$ on line (40). By induction: $$(\forall n \in \mathbb{N})\left(\frac{1}{3}n^3+\frac{1}{2}n^2+\frac{1}{6}n \in \mathbb{Z}\right)$$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.9}\\\\
+(b)\\\\
+The given sum is a telescoping series. Evidently, the most important terms (that remain after the cancellations of other terms) are $\frac{1}{2} - \frac{1}{201}$.
+\begin{align}
+&\quad \sum_{k=2}^{200}\left(\frac{1}{k}-\frac{1}{k+1}\right)\\
+&= \left(\frac{1}{2}-\frac{1}{3}\right)+\left(\frac{1}{3}-\frac{1}{4}\right)+\cdots+\left(\frac{1}{199}-\frac{1}{200}\right)+\left(\frac{1}{200}-\frac{1}{201}\right)\\
+&= \frac{1}{2}-\frac{1}{201}\\
+&= \frac{201}{402}-\frac{2}{402}\\
+&= \frac{199}{402}
+\end{align}
+(c)
+\begin{align}
+&\quad \prod_{k=1}^{69}2^{k-35}\\
+&= (2^{-34})(2^{-33})\cdots(2^0)\cdots(2^{33})(2^{34})\\
+&= 1
+\end{align}
+\textbf{4.6.10}\\\\
+(a)
+$$\left(\sum_{k=1}^{n}a_k\right)\cdot\left(\sum_{k=1}^{n}b_k\right)=\sum_{k=1}^{n}(a_k \cdot b_k)$$
+Counterexample: $\quad  n=2, \quad a_1 = 1, \quad a_2 = 3, \quad b_1=2, \quad b_2=4$
+$$\implies (1+3)\cdot (2+4) = (1\cdot 2)+(3\cdot 4) \implies 24=14$$
+By the above contradiction, the given statement is false. 
+\begin{flushright}
+$\quad\blacksquare$
+\end{flushright}
+(b)
+\begin{align}
+&\left(\sum_{k=1}^{n}a_k\right)-\left(\sum_{k=1}^{n}b_k\right)\\
+&= (a_1+a_2+\cdots+a_{k-1}+a_k)-(b_1+b_2+\cdots+b_{k-1}+b_k)\\
+&= (a_1-b_1)+(a_2-b_2)+\cdots+(a_k-b_k)\\
+&= \sum_{k=1}^{n}(a_k-b_k)
+\end{align}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+(c)\\
+$$\left(\prod_{k=1}^{n}a_k\right)-\left(\prod_{k=1}^{n}b_k\right)=\prod_{k=1}^{n}(a_k - b_k)$$
+Counterexample: $\quad  n=2, \quad a_1 = 1, \quad a_2 = 3, \quad b_1=2, \quad b_2=4$
+$$\implies (1\cdot 3)+ (2\cdot 4) = (1- 2)\cdot (3- 4) \implies 11=1$$
+By the above contradiction, the given statement is false. 
+\begin{flushright}
+$\quad\blacksquare$
+\end{flushright}
+(d)\\
+\begin{align}
+&\frac{\left(\prod_{k=1}^{n}a_k\right)}{\left(\prod_{k=1}^{n}b_k\right)}\\
+&= \frac{a_1\cdot a_2 \cdots a_{k-1}\cdot a_k}{b_1\cdot b_2 \cdots b_{k-1}\cdot b_k}\\
+&= \frac{a_1}{b_1}\cdot\frac{a_2}{b_2}\cdots \frac{a_{k-1}}{b_{k-1}}\cdot \frac{a_k}{b_k}\\
+&= \prod_{k=1}^{n}\frac{a_k}{b_k}
+\end{align}
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\textbf{4.6.11}\\\\
+(a)\\\\
+$$\textnormal{Claim: }\quad\quad\forall n \in \mathbb{N}, \quad \sum_{i=1}^{n}\frac{i}{2^i}=2-\frac{n+2}{2^n}$$
+For our proof, we must confirm the base case. $$n=1 \iff \sum_{i=1}^{(1)}\frac{(1)}{2^{(1)}}=2-\frac{(1)+2}{2^{(1)}}\iff \frac{1}{2}=\frac{1}{2}$$
+Next, we show that $(\forall k \in \mathbb{N})(n=k \implies n=k+1)$. Assuming our induction hypothesis, $\quad \sum_{i=1}^{k}\frac{i}{2^i}=2-\frac{k+2}{2^k},\quad$ we want to show the following:
+$$\boxed{\sum_{i=1}^{(k+1)}\frac{i}{2^i}=2-\frac{(k+1)+2}{2^{(k+1)}}}$$
+\begin{align}
+&\quad\quad \sum_{i=1}^{k}\frac{i}{2^i}=2-\frac{k+2}{2^k}\\
+&\iff \sum_{i=1}^{k}\frac{i}{2^i}+\frac{k+1}{2^{k+1}}=2-\frac{k+2}{2^k}+\frac{k+1}{2^{k+1}}\\
+&\iff \sum_{i=1}^{(k+1)}\frac{i}{2^i}=2-\frac{2(k+2)}{2^{k+1}}+\frac{k+1}{2^{k+1}}\\
+&\iff \sum_{i=1}^{(k+1)}\frac{i}{2^i}=2-\left(\frac{2k+4-k-1}{2^{k+1}}\right)\\
+&\iff \sum_{i=1}^{(k+1)}\frac{i}{2^i}=2-\frac{(k+1)+2}{2^{(k+1)}}
+\end{align}
+Using our induction hypothesis on line (65), we show by induction that $(\forall n \in \mathbb{N}), \quad (\sum_{i=1}^{n}\frac{i}{2^i}=2-\frac{n+2}{2^n})$ as required.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+(c)\\\\
+$$\textnormal{Let's prove the following: }\quad \forall n \in \mathbb{N}, \quad \prod_{i=2}^{n}\left(1-\frac{1}{i^2}\right)=\frac{n+1}{2n}$$
+Starting with our base cases, we observe: 
+$$n=1 \implies \textnormal{Vacuous Statement: } False \Rightarrow True$$
+$$n=2 \iff \prod_{i=2}^{(2)}\left(1-\frac{1}{(2)^2}\right)=\frac{(2)+1}{2(2)} \iff \frac{3}{4} = \frac{3}{4}$$
+Notice that when $n=1$, our product notation's index is greater than its upper limit, which is not defined for all $n \in \mathbb{N}$, as necessitated by the given question. Having confirmed our base cases, we must show that $(\forall k \in \mathbb{N}) (n = k \implies n=k+1)$. To do this, we establish our induction hypothesis: $$\prod_{i=2}^{k}\left(1-\frac{1}{i^2}\right)=\frac{k+1}{2k}$$
+We would like to show the following.
+$$\boxed{\prod_{i=2}^{(k+1)}\left(1-\frac{1}{i^2}\right)=\frac{(k+1)+1}{2(k+1)}}$$
+\begin{align}
+&\quad\quad k^2+2k=k^2+2k\\
+&\iff k^2+2k=(k^2+2k+1)-1\\
+&\iff k^2+2k=(k+1)^2-1\\
+&\iff \frac{k^2+2k}{k+1}=(k+1)-\frac{1}{k+1}\\
+&\iff 2k\left(\frac{k+2}{2k+2}\right)=(k+1)-\frac{1}{k+1}\\
+&\iff \left(\frac{k+2}{2k+2}\right)=\frac{(k+1)-(k+1)^{-1}}{2k}\\
+&\iff \left(\frac{(k+1)+1}{2(k+1)}\right)=\frac{(k+1)(k+1)^2}{2k(k+1)^2}-\frac{(k+1)}{2k(k+1)^2}\\
+&\iff \left(\frac{(k+1)+1}{2(k+1)}\right)=\frac{(k+1)}{2k}-\frac{(k+1)}{2k(k+1)^2}\\
+&\iff \left(\frac{(k+1)+1}{2(k+1)}\right)=\frac{(k+1)}{2k}-\frac{(k+1)}{2k}\cdot \frac{1}{(k+1)^2}\\
+&\iff \frac{(k+1)+1}{2(k+1)}=\left[\prod_{i=2}^{k}\left(1-\frac{1}{i^2}\right)\right]\cdot\left(1-\frac{1}{(k+1)^2}\right)\\
+&\iff \prod_{i=2}^{(k+1)}\left(1-\frac{1}{i^2}\right)=\frac{(k+1)+1}{2(k+1)}
+\end{align}
+Notice that the transition from line (78) to (79) required us to use our induction hypothesis. Through algebraic manipulation, we show by induction that indeed $(\forall n \in \mathbb{N}) \left(\prod_{i=2}^{n}\left(1-\frac{1}{i^2}\right)=\frac{n+1}{2n}\right)$ as required. 
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\end{document}
+
